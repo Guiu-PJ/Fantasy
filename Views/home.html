@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <title>Fantasy</title>
+    <link rel="stylesheet" href="../Styles/styles.css">
+</head>
+<body>
+    <label id="benvingut">Benvingut: </label>
+    <br/>
+    <button id="btnCrearLiga">Crear lliga</button>
+    <button id="btnAdmin">ADMIN</button>
+
+    <div id="divteams"></div>
+
+
+    <div id="divCrearLiga" class="divCrearLiga">
+        <label>Nom de la lliga</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nom de la lliga" required>
+        <br><br>
+
+        <label for="password">Contrasenya:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        
+        <label for="teamName">Nom del teu equip:</label>
+        <input type="text" id="teamName" name="teamName" required>
+        <br><br>
+
+        <button id="btnCrearLigaConfirmar">Crear</button>
+        <button id="btnCrearLigaCerrar">Tancar</button>
+    </div>
+
+    <script type="module" src="../Scripts/home.js"></script>
+</body>
+</html>

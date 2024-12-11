@@ -1,0 +1,55 @@
+.footer {
+    display: flex;
+    justify-content: space-around; /* Espacio igual entre los elementos */
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer-option {
+    cursor: pointer;
+    text-align: center;
+    flex: 1; /* Opcional: permite que cada opción ocupe el mismo ancho */
+    transition: color 0.3s ease;
+}
+
+    .footer-option:hover {
+        color: #ff9900; /* Cambia el color al pasar el ratón */
+    }
+
+
+body, html{
+    height: 99%
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.divCrearLiga, .divAddPlayer {
+    display: none; /* Oculto inicialmente */
+    position: fixed; /* Fijo en la pantalla, incluso al hacer scroll */
+    top: 50%; /* Posicionado en el centro vertical */
+    left: 50%; /* Posicionado en el centro horizontal */
+    transform: translate(-50%, -50%); /* Ajuste para centrarlo correctamente */
+    background-color: white; /* Color de fondo para que sea visible */
+    border: 1px solid black; /* Borde negro alrededor del div */
+    padding: 20px; /* Espacio interno */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle un aspecto flotante */
+    z-index: 1000; /* Asegura que este por encima de otros elementos */
+}
+
+.playersJ {
+    background-color: #14d71f;
+}
+.playerP {
+    background-color: #ff0000;
+}
+

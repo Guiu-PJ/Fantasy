@@ -1,0 +1,8 @@
+.vs/
+*.vspscc
+*.vssscc
+*.user
+*.userosscache
+*.suo
+*.tmp
+node_modules/
