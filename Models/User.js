@@ -1,5 +1,6 @@
 import { setDoc, getDoc, doc, collection, query, where, getDocs, firestore } from "../BDD/Firebase.js"
 
+const BASE_URL = 'https://fantasybackend-yok6.onrender.com';
 
 class User {
     constructor(userName, password, role) {
@@ -31,8 +32,22 @@ class User {
 
     async saveUser() {
         try {
-            setDoc(doc(firestore,'User', this.id), this.toJSON());
-            console.log("Documento añadido con ID:", this.id);
+            //setDoc(doc(firestore,'User', this.id), this.toJSON());
+            //console.log("Documento añadido con ID:", this.id);
+            fetch(`${BASE_URL}/api/users/createUser`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.toJSON()),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Usuario creado:', data);
+                })
+                .catch(error => {
+                    console.error('Error al crear usuario:', error);
+                });
         } catch (e) {
             console.error("Error al añadir el documento: ", e);
         }
