@@ -44,9 +44,11 @@ class User {
                 .then(response => response.json())
                 .then(data => {
                     console.log('Usuario creado:', data);
+                    alert('Usuari creat');
                 })
                 .catch(error => {
                     console.error('Error al crear usuario:', error);
+                    alert("error al crear l'usuari");
                 });
         } catch (e) {
             console.error("Error al añadir el documento: ", e);
