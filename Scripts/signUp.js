@@ -26,7 +26,7 @@ form.addEventListener('submit', async (event) => {
         console.error("Error durante el registro del usuario:", error);
         alert("Ocurrió un error al procesar el formulario. Inténtalo de nuevo.");
     }finally {
-        loadingIndicator.style.display = 'none';
+        //loadingIndicator.style.display = 'none';
     }
 
 });
