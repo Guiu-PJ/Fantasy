@@ -6,8 +6,10 @@
 </head>
 <body>
     <label id="benvingut">Benvingut: </label>
-    <br/>
+    <br />
     <button id="btnCrearLiga">Crear lliga</button>
+    <button id="btnUnirseLiga">Unir-se lliga</button>
+    <button id="btnTancarSessio">Tancar sessió</button>
     <button id="btnAdmin">ADMIN</button>
 
     <div id="divteams"></div>
@@ -21,13 +23,33 @@
         <label for="password">Contrasenya:</label>
         <input type="password" id="password" name="password" required>
         <br><br>
-        
+
         <label for="teamName">Nom del teu equip:</label>
         <input type="text" id="teamName" name="teamName" required>
         <br><br>
 
         <button id="btnCrearLigaConfirmar">Crear</button>
         <button id="btnCrearLigaCerrar">Tancar</button>
+    </div>
+
+    <div id="divUnirseLiga" class="divUnirseLiga">
+        <label>Unir-se a la lliga</label>
+        <br><br>
+
+        <label for="leagueIdUnirse">Id de la lliga:</label>
+        <input type="text" id="leagueIdUnirse" name="leagueIdUnirse" required>
+        <br><br>
+
+        <label for="teamNameUnirse">Nom del teu equip:</label>
+        <input type="text" id="teamNameUnirse" name="teamNameUnirse" required>
+        <br><br>
+
+        <label for="passwordUnirse">Contrasenya de la lliga:</label>
+        <input type="password" id="passwordUnirse" name="passwordUnirse" required>
+        <br><br>
+
+        <button id="btnUnirseLigaConfirmar">Crear</button>
+        <button id="btnUnirseLigaCerrar">Tancar</button>
     </div>
 
     <script type="module" src="../Scripts/home.js"></script>

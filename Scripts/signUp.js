@@ -15,18 +15,12 @@ form.addEventListener('submit', async (event) => {
         loadingIndicator.style.display = 'block';
         const newUser = new User(nombre, password, 'user');
 
-        const exists = await newUser.userExists();
-        if (!exists) {
-            await newUser.saveUser();
-
-        } else {
-            alert("Ja existeix un usuari amb aquest nom");
-        }
+        await newUser.saveUser(false);
     }catch(error) {
         console.error("Error durante el registro del usuario:", error);
         alert("Ocurrió un error al procesar el formulario. Inténtalo de nuevo.");
     }finally {
-        //loadingIndicator.style.display = 'none';
+        loadingIndicator.style.display = 'none';
     }
 
 });

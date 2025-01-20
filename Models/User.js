@@ -30,30 +30,30 @@ class User {
         };
     }
 
-    async saveUser() {
+    async saveUser(force) {
         try {
-            //setDoc(doc(firestore,'User', this.id), this.toJSON());
-            //console.log("Documento añadido con ID:", this.id);
-            fetch(`${BASE_URL}/api/users/createUser`, {
+            const response = await fetch(`${BASE_URL}/api/users/createUser/${force}`, { // Asigna el resultado de fetch
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(this.toJSON()),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Usuario creado:', data);
-                    alert('Usuari creat');
-                })
-                .catch(error => {
-                    console.error('Error al crear usuario:', error);
-                    alert("error al crear l'usuari");
-                });
+            });
+
+            if (!response.ok) {
+                const errorResponse = await response.json(); // Procesa el error del servidor
+                console.error("Error al crear l'usuari:", errorResponse);
+                alert("Error al crear l'usuari: " + errorResponse.message);
+            } else {
+                const data = await response.json(); // Procesa la respuesta exitosa
+                console.log('Usuari creat:', data);
+                alert('Usuari creat');
+            }
         } catch (e) {
-            console.error("Error al añadir el documento: ", e);
+            console.error("Error al añadir el documento: ", e); // Manejo de errores generales
+            alert("Error al añadir el documento");
         }
-    };
+    }
 
     async userExists() {
         try {
@@ -72,7 +72,19 @@ class User {
 
     async getUserByUsername(username) {
         try {
-            const usersCollection = collection(firestore, 'User');
+            const response = await fetch(`${BASE_URL}/api/users/getUser/${username}`, { // Asigna el resultado de fetch
+                method: 'GET',
+            });
+
+            const user = await response.json();
+            return user;
+
+        } catch (e) {
+            console.error("Error al buscar el jugador: ", e); // Manejo de errores generales
+            alert("Error al buscar el jugador");
+        }
+
+            /*const usersCollection = collection(firestore, 'User');
             const q = query(usersCollection, where('userName', '==', username));
             const querySnapshot = await getDocs(q);
 
@@ -85,7 +97,7 @@ class User {
         } catch (error) {
             console.error("Error buscando el usuario:", error);
             throw error;
-        }
+        }*/
     }
 
     signIn(user) {

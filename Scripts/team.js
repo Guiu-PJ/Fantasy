@@ -1,18 +1,3 @@
-/*import Team_Player from "../Models/Team_Player.js";
-
-const divCurrentTeam = document.getElementById('divCurrentTeam');
-
-const user = JSON.parse(sessionStorage.getItem("currentUser"));
-const team = JSON.parse(sessionStorage.getItem("currentTeam"));
-
-document.addEventListener('DOMContentLoaded', async () => {
-
-    const players = await Team_Player.getAllTeamPlayers(team.id);
-
-    console.log(players);
-
-});*/
-
 import Team_Player from "../Models/Team_Player.js";
 
 const divPlayersTeam = document.getElementById('divPlayersTeam');
@@ -103,13 +88,13 @@ playerP.addEventListener('click', () => deactivatePlayer('p'));
 const saveChanges = async () => {
     try {
         const activePlayersList = Object.values(activePlayers).filter(player => player);
+        console.log(activePlayersList);
         const playersToUpdate = [
-            ...activePlayersList.map(player => ({ id: player.id, status: 'p' })),
-            ...playersStatusB.map(player => ({ id: player.id, status: 'b' }))
+            ...activePlayersList.map(player => ({ id: player.id, status: 'p', idTeam: player.idTeam })),
+            ...playersStatusB.map(player => ({ id: player.id, status: 'b', idTeam: player.idTeam }))
         ];
-
+        console.log(playersToUpdate);
         await Team_Player.updatePlayersStatus(playersToUpdate);
-        alert('Los cambios han sido guardados correctamente.');
     } catch (error) {
         console.error("Error al guardar los cambios:", error);
         alert('Hubo un problema al guardar los cambios.');

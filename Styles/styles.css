@@ -33,7 +33,7 @@ a {
     color: white;
 }
 
-.divCrearLiga, .divAddPlayer {
+.divCrearLiga, .divAddPlayer, .divResultats, .divUnirseLiga {
     display: none; /* Oculto inicialmente */
     position: fixed; /* Fijo en la pantalla, incluso al hacer scroll */
     top: 50%; /* Posicionado en el centro vertical */

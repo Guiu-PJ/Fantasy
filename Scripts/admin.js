@@ -1,4 +1,5 @@
 import Player from "../Models/Player.js";
+import PlayerForSale from "../Models/PlayerForSale.js";
 
 const btnAddPlayer = document.getElementById('btnAddPlayer');
 const divAddPlayer = document.getElementById('divAddPlayer');
@@ -6,6 +7,8 @@ const btnaAnadirJugadorCerrar = document.getElementById('btnaAnadirJugadorCerrar
 const btnResultats = document.getElementById('btnResultats');
 const divResultats = document.getElementById('divResultats');
 const btnResultatsCerrar = document.getElementById('btnResultatsCerrar');
+const btnMarket = document.getElementById('btnMarket');
+const btnAdminPoints = document.getElementById('btnAdminPoints');
 
 const formAnadirJugador = document.getElementById('signUpForm');
 const formResultats = document.getElementById('formResultats');
@@ -31,14 +34,19 @@ btnResultatsCerrar.addEventListener('click', () => {
     divResultats.style.display = 'none';
 });
 
+btnAdminPoints.addEventListener('click', () => {
+    window.location.href = '/Views/adminPoints.html';
+});
 
-formAnadirJugador.addEventListener('submit', async (event) => {
+/*
+formResultats.addEventListener('submit', async (event) => {
     // Prevenir el envío por defecto (para que no recargue la página)
     event.preventDefault();
 
 
 
 });
+*/
 
 
 formAnadirJugador.addEventListener('submit', async (event) => {
@@ -55,9 +63,15 @@ formAnadirJugador.addEventListener('submit', async (event) => {
     try{
         await player.savePlayer();
         divAddPlayer.style.display = 'none';
-        alert('Jugador creat');
     } catch (e) {
         alert('error al crear le jugador: ' + e);
     }
 
 });
+
+btnMarket.addEventListener('click', async (event) => {
+
+    await PlayerForSale.updateRandomPlayersForSale();
+    
+});
+
